@@ -1,4 +1,5 @@
-def partition(arr, low, high):
+
+def test_partition(arr, low, high):
     i = (low -1)
     pivot = arr[high]
     for j in range(low, high):
@@ -8,17 +9,17 @@ def partition(arr, low, high):
     arr[i+1],arr[high] = arr[high], arr[i+1]
     return (i+1)
             
-def quick_sort(arr, low, high):
+def test_quick_sort(arr, low, high):
     if low < high:
-        pi = partition(arr, low, high)
-        quick_sort(arr, low, pi-1)
-        quick_sort(arr, pi+1, high)
+        pi = test_partition(arr, low, high)
+        test_quick_sort(arr, low, pi-1)
+        test_quick_sort(arr, pi+1, high)
 lst = []
 size = int(input("Enter size of the list: "))
 for i in range(size):
-    elements = int(input("Enter an element: "))
+    elements = int(input("Enter an element"))
     lst.append(elements)
 low = 0
 high = len(lst) - 1
-quick_sort(lst, low, high)
+test_quick_sort(lst, low, high)
 print(lst)
